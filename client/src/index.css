@@ -1,0 +1,16 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  padding: 50px;
+}
