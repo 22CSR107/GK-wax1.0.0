@@ -18,6 +18,8 @@ function SearchPage() {
     const [candles, setCandles] = useState(
         initialCandles.map(candle => ({ ...candle, quantity: 0 }))
     );
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortOrder, setSortOrder] = useState("asc");
 
     const increaseQuantity = (id) => {
         setCandles(candles.map(candle =>
@@ -33,12 +35,40 @@ function SearchPage() {
         ));
     };
 
+    const clearCart = () => {
+        setCandles(candles.map(candle => ({ ...candle, quantity: 0 })));
+    };
+
+    const totalPrice = candles.reduce((acc, candle) => acc + candle.price * candle.quantity, 0);
+
+    const filteredCandles = candles
+        .filter((candle) => candle.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .sort((a, b) => (sortOrder === "asc" ? a.price - b.price : b.price - a.price));
+
     return (
         <Page>
             <div style={styles.container}>
-                <h1 style={styles.heading}>Candle Collection</h1>
+                <h1 style={styles.heading}>Candle Collection 🕯️</h1>
+                <div style={styles.searchSortContainer}>
+                    <input
+                        type="text"
+                        placeholder="Search candles..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        style={styles.searchInput}
+                    />
+                    <select
+                        value={sortOrder}
+                        onChange={(e) => setSortOrder(e.target.value)}
+                        style={styles.sortSelect}
+                    >
+                        <option value="asc">Price: Low to High</option>
+                        <option value="desc">Price: High to Low</option>
+                    </select>
+                </div>
+
                 <div style={styles.candleList}>
-                    {candles.map((candle) => (
+                    {filteredCandles.map((candle) => (
                         <div key={candle.id} style={styles.card}>
                             <img src={candle.image} alt={candle.name} style={styles.image} />
                             <h2 style={styles.candleName}>{candle.name}</h2>
@@ -50,6 +80,11 @@ function SearchPage() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div style={styles.summaryContainer}>
+                    <h3>Total Price: ₹{totalPrice}</h3>
+                    <button onClick={clearCart} style={styles.clearButton}>Clear Cart</button>
                 </div>
             </div>
         </Page>
@@ -69,6 +104,26 @@ const styles = {
         color: "#8B4513",
         fontFamily: "'Playfair Display', serif",
         marginBottom: "20px",
+    },
+    searchSortContainer: {
+        display: "flex",
+        justifyContent: "center",
+        gap: "20px",
+        marginBottom: "30px",
+    },
+    searchInput: {
+        padding: "10px",
+        width: "250px",
+        borderRadius: "5px",
+        border: "1px solid #8B4513",
+        outline: "none",
+        fontFamily: "'Poppins', sans-serif",
+    },
+    sortSelect: {
+        padding: "10px",
+        borderRadius: "5px",
+        border: "1px solid #8B4513",
+        fontFamily: "'Poppins', sans-serif",
     },
     candleList: {
         display: "flex",
@@ -122,6 +177,25 @@ const styles = {
         fontWeight: "bold",
         color: "#5A4A42",
     },
+    summaryContainer: {
+        marginTop: "30px",
+        padding: "20px",
+        backgroundColor: "#F9E1CC",
+        borderRadius: "10px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        fontSize: "20px",
+        color: "#5A4A42",
+    },
+    clearButton: {
+        marginTop: "10px",
+        padding: "10px 20px",
+        backgroundColor: "#A0522D",
+        color: "white",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        fontSize: "16px",
+    },
 };
 
-export default SearchPage;
+export default SearchPage; 

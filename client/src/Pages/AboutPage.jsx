@@ -28,6 +28,36 @@ function AboutPage() {
             description: "Each candle is carefully hand-poured to ensure premium quality and craftsmanship.",
             image: "https://i.pinimg.com/736x/a9/3d/e9/a93de9e7958d14cbe1f6fd7eddde7e2e.jpg",
         },
+        {
+            title: "Soothing Scents",
+            description: "Choose from a wide range of fragrances that calm the mind and uplift the spirit.",
+            image: "https://i.pinimg.com/736x/d5/3c/ae/d53cae7dff2d0c2e11e90bde1fb0eec5.jpg",
+        },
+        {
+            title: "Customizable Candles",
+            description: "Personalize your candles with custom scents and designs, perfect for gifts and special occasions.",
+            image: "https://i.pinimg.com/736x/79/f3/8b/79f38b56e178bf63bb16e6b9e184e253.jpg",
+        },
+        {
+            title: "Elegant Packaging",
+            description: "Each candle comes in beautifully designed packaging, adding a touch of luxury to any setting.",
+            image: "https://i.pinimg.com/736x/b1/5c/cc/b15ccc508f3f2c4a8766c0c60be66b04.jpg",
+        },
+    ];
+
+    const reviews = [
+        {
+            name: "Sophia",
+            comment: "The scents are heavenly, and the burn time is impressive! My home smells amazing.",
+        },
+        {
+            name: "Daniel",
+            comment: "Absolutely love the eco-friendly aspect. These candles are now a staple in my home.",
+        },
+        {
+            name: "Olivia",
+            comment: "Beautifully packaged and perfect for gifting. Highly recommend!",
+        },
     ];
 
     return (
@@ -37,7 +67,7 @@ function AboutPage() {
                 <p style={styles.description}>
                     Experience the elegance and purity of handcrafted candles with GK Wax. Our candles are designed to bring warmth, relaxation, and a touch of luxury to your space.
                 </p>
-                
+
                 <div style={styles.featuresContainer}>
                     {features.map((feature, index) => (
                         <div key={index} style={styles.featureCard}>
@@ -46,6 +76,25 @@ function AboutPage() {
                             <p style={styles.featureDescription}>{feature.description}</p>
                         </div>
                     ))}
+                </div>
+
+                <h2 style={styles.reviewHeading}>What Our Customers Say</h2>
+                <div style={styles.reviewContainer}>
+                    {reviews.map((review, index) => (
+                        <div key={index} style={styles.reviewCard}>
+                            <p style={styles.reviewComment}>&ldquo;{review.comment}&rdquo;</p>
+                            <p style={styles.reviewName}>- {review.name}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={styles.subscriptionSection}>
+                    <h2 style={styles.subscriptionHeading}>Subscribe for Exclusive Offers</h2>
+                    <p style={styles.subscriptionText}>
+                        Join our community and be the first to know about new scents, discounts, and special editions.
+                    </p>
+                    <input type="email" placeholder="Enter your email" style={styles.emailInput} />
+                    <button style={styles.subscribeButton}>Subscribe Now</button>
                 </div>
             </div>
         </Page>
@@ -104,6 +153,70 @@ const styles = {
         fontSize: "16px",
         color: "#5A4A42",
         fontFamily: "'Poppins', sans-serif",
+    },
+    reviewHeading: {
+        fontSize: "30px",
+        fontWeight: "bold",
+        color: "#8B4513",
+        margin: "50px 0 20px",
+    },
+    reviewContainer: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "20px",
+    },
+    reviewCard: {
+        backgroundColor: "#FCEBD4",
+        padding: "20px",
+        borderRadius: "10px",
+        width: "300px",
+        boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
+    },
+    reviewComment: {
+        fontSize: "16px",
+        color: "#5A4A42",
+        fontStyle: "italic",
+    },
+    reviewName: {
+        fontSize: "14px",
+        fontWeight: "bold",
+        color: "#8B4513",
+        marginTop: "10px",
+    },
+    subscriptionSection: {
+        backgroundColor: "#FAE5D3",
+        padding: "40px",
+        borderRadius: "10px",
+        marginTop: "50px",
+        textAlign: "center",
+    },
+    subscriptionHeading: {
+        fontSize: "28px",
+        fontWeight: "bold",
+        color: "#8B4513",
+        marginBottom: "10px",
+    },
+    subscriptionText: {
+        fontSize: "16px",
+        color: "#5A4A42",
+        marginBottom: "20px",
+    },
+    emailInput: {
+        padding: "10px",
+        width: "250px",
+        borderRadius: "5px",
+        border: "1px solid #8B4513",
+        marginRight: "10px",
+    },
+    subscribeButton: {
+        padding: "10px 20px",
+        borderRadius: "5px",
+        border: "none",
+        backgroundColor: "#8B4513",
+        color: "white",
+        cursor: "pointer",
+        fontSize: "16px",
     },
 };
 
