@@ -31,17 +31,17 @@ function AboutPage() {
         {
             title: "Soothing Scents",
             description: "Choose from a wide range of fragrances that calm the mind and uplift the spirit.",
-            image: "https://i.pinimg.com/736x/d5/3c/ae/d53cae7dff2d0c2e11e90bde1fb0eec5.jpg",
+            image: "https://i.pinimg.com/236x/11/2c/cf/112ccfc14c84e922ff175460ee5e2f42.jpg",
         },
         {
             title: "Customizable Candles",
             description: "Personalize your candles with custom scents and designs, perfect for gifts and special occasions.",
-            image: "https://i.pinimg.com/736x/79/f3/8b/79f38b56e178bf63bb16e6b9e184e253.jpg",
+            image: "https://i.pinimg.com/236x/85/a1/b9/85a1b97603987c7f5c774d92de3132b7.jpg",
         },
         {
             title: "Elegant Packaging",
             description: "Each candle comes in beautifully designed packaging, adding a touch of luxury to any setting.",
-            image: "https://i.pinimg.com/736x/b1/5c/cc/b15ccc508f3f2c4a8766c0c60be66b04.jpg",
+            image: "https://i.pinimg.com/736x/aa/81/e2/aa81e27cf0da6ae7a776150eef5530ae.jpg",
         },
     ];
 

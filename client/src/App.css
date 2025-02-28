@@ -1,4 +1,126 @@
-.app {
-  padding-top: 100px;
-  min-width: 80vw;
+/* Full background image for login/signup */
+.auth-background {
+  background: url("https://i.pinimg.com/736x/0c/eb/2c/0ceb2c3799b8b809b5c3fa074c79492a.jpg") no-repeat center center/cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centered login/signup form */
+.auth-container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+/* Input fields */
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Buttons */
+button {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #e68900;
+}
+
+/* Error text */
+.error-text {
+  color: red;
+  font-size: 14px;
+}
+
+/* Toggle button */
+.toggle-btn {
+  background: none;
+  color: #ff6600;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.toggle-btn:hover {
+  text-decoration: underline;
+}
+
+
+
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Navigation Icons */
+.nav-icon {
+  font-size: 24px;
+}
+
+/* Navigation Text */
+.nav-text {
+  font-size: 16px;
+}
+
+
+
+
+
+
+/* Ensure content width is proper */
+.main-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: #333;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+/* Navigation Items */
+.nav-item {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Adjust images in Home, About, Search, Profile pages */
+.main-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
 }
