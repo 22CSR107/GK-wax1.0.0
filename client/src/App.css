@@ -1,17 +1,16 @@
-/* Reset and global styles */
 body, html {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  overflow-y: auto;
+  height: 100%;
+  overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
 .page-container {
   position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* Carousel background */
@@ -94,6 +93,7 @@ body, html {
   font-size: 16px;
   cursor: pointer;
 }
+
 .toggle-btn {
   background: none;
   border: none;
@@ -106,8 +106,26 @@ body, html {
   color: #ff4d4d;
   font-size: 14px;
 }
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  background-color: #fff; /* or transparent if over a carousel */
+  font-size: 20px;
+  font-weight: bold;
+}
 
-/* Navigation Bar */
+.nav-bar a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+/* .nav-bar a:hover {
+  color: #ff6600; /* highlight color on hover */
+/* App.css */
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -116,13 +134,13 @@ body, html {
   padding: 20px;
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-item {
   margin: 0 30px;
-  font-size: 26px; /* Larger font */
+  font-size: 24px;  /* Large font size */
   font-weight: bold;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
@@ -131,6 +149,5 @@ body, html {
 
 .nav-item:hover {
   transform: scale(1.1);
-  color: #8B4513;
+  color: #8B4513; /* Optional: add hover effect */
 }
-
