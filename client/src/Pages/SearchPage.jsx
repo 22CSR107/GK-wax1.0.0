@@ -1,49 +1,53 @@
 import React, { useState } from "react";
 import Page from "../components/Page";
 
+// Importing images from src/assets
+import img1 from "../assets/candle1.jpg";
+import img2 from "../assets/candle2.jpg";
+import img3 from "../assets/candle3.jpg";
+import img4 from "../assets/candle4.jpg";
+import img5 from "../assets/candle5.jpg";
+import img6 from "../assets/candle6.jpg";
+import img7 from "../assets/candle7.jpg";
+import img8 from "../assets/candle8.jpg";
+import img9 from "../assets/candle9.jpg";
+import img10 from "../assets/candle10.jpg";
+
 function SearchPage() {
     const initialCandles = [
-        { id: 1, name: "Vanilla Bliss", price: 299, image: "https://i.pinimg.com/736x/4c/35/08/4c35081ea66c264f92ec597b2f921d62.jpg" },
-        { id: 2, name: "Lavender Dreams", price: 349, image: "https://i.pinimg.com/736x/59/40/28/5940280b2d90c6dcba3f7689d95c894d.jpg" },
-        { id: 3, name: "Rose Petal Glow", price: 399, image: "https://i.pinimg.com/736x/ef/e7/df/efe7df333dd86b36186a96b552f55a54.jpg" },
-        { id: 4, name: "Cinnamon Spice", price: 279, image: "https://i.pinimg.com/474x/d5/9e/32/d59e3211336332113676f9d78198f2dc.jpg" },
-        { id: 5, name: "Jasmine Serenity", price: 329, image: "https://i.pinimg.com/236x/e8/ec/0e/e8ec0e3eda4ada57a579f177fedea354.jpg" },
-        { id: 6, name: "Ocean Breeze", price: 359, image: "https://i.pinimg.com/236x/7f/f4/c6/7ff4c63364b454db3d5fe0ca2ddace6c.jpg" },
-        { id: 7, name: "Coconut Paradise", price: 319, image: "https://i.pinimg.com/236x/28/c6/f2/28c6f2547192b9bf605f969d1c3f5c29.jpg" },
-        { id: 8, name: "Sandalwood Bliss", price: 389, image: "https://i.pinimg.com/474x/18/6d/f9/186df964e62cce30b80d193a2c3a1eae.jpg" },
-        { id: 9, name: "Berry Delight", price: 299, image: "https://i.pinimg.com/236x/b5/a6/65/b5a6655d6ff05c42d0b76d79e3588673.jpg" },
-        { id: 10, name: "Peach Blossom", price: 349, image: "https://i.pinimg.com/236x/16/33/f3/1633f34d8b8e8926e222e77ee4d2d3e2.jpg" },
+        { id: 1, name: "Spices with Rose", price: 80, image: img1 },
+        { id: 2, name: "Coconut shell rose flower", price: 80, image: img2 },
+        { id: 3, name: "Coconut shell oval type full polished rose petals with rose perfume", price: 100, image: img3 },
+        { id: 4, name: "Cinnamon Spice", price: 80, image: img4 },
+        { id: 5, name: "Coconut shell candle gift", price: 100, image: img5 },
+        { id: 6, name: "Painted Coconut shell candle", price: 100, image: img6 },
+        { id: 7, name: "Leaf leaf type candle", price: 120, image: img7 },
+        { id: 8, name: "Pepper Salt", price: 200, image: img8 },
+        { id: 9, name: "Full Polished Coconut Shell Candle", price: 200, image: img9 },
+        { id: 10, name: "Rose Coconut Shell Candle", price: 80, image: img10 },
     ];
 
-    const [candles, setCandles] = useState(
-        initialCandles.map(candle => ({ ...candle, quantity: 0 }))
-    );
+    const [candles, setCandles] = useState(initialCandles.map(c => ({ ...c, quantity: 0 })));
     const [searchTerm, setSearchTerm] = useState("");
     const [sortOrder, setSortOrder] = useState("asc");
 
     const increaseQuantity = (id) => {
-        setCandles(candles.map(candle =>
-            candle.id === id ? { ...candle, quantity: candle.quantity + 1 } : candle
-        ));
+        setCandles(candles.map(c => c.id === id ? { ...c, quantity: c.quantity + 1 } : c));
     };
 
     const decreaseQuantity = (id) => {
-        setCandles(candles.map(candle =>
-            candle.id === id && candle.quantity > 0
-                ? { ...candle, quantity: candle.quantity - 1 }
-                : candle
-        ));
+        setCandles(candles.map(c => c.id === id && c.quantity > 0 ? { ...c, quantity: c.quantity - 1 } : c));
     };
 
     const clearCart = () => {
-        setCandles(candles.map(candle => ({ ...candle, quantity: 0 })));
+        setCandles(candles.map(c => ({ ...c, quantity: 0 })));
     };
 
-    const totalPrice = candles.reduce((acc, candle) => acc + candle.price * candle.quantity, 0);
+    const totalPrice = candles.reduce((acc, c) => acc + c.price * c.quantity, 0);
 
     const filteredCandles = candles
-        .filter((candle) => candle.name.toLowerCase().includes(searchTerm.toLowerCase()))
-        .sort((a, b) => (sortOrder === "asc" ? a.price - b.price : b.price - a.price));
+        .filter(c => c.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .sort((a, b) => sortOrder === "asc" ? a.price - b.price : b.price - a.price);
 
     return (
         <Page>
@@ -198,4 +202,4 @@ const styles = {
     },
 };
 
-export default SearchPage; 
+export default SearchPage;
