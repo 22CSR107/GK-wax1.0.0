@@ -1,126 +1,136 @@
-/* Full background image for login/signup */
-.auth-background {
-  background: url("https://i.pinimg.com/736x/0c/eb/2c/0ceb2c3799b8b809b5c3fa074c79492a.jpg") no-repeat center center/cover;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Reset and global styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
 }
 
-/* Centered login/signup form */
+.page-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Carousel background */
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 18s infinite;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide1 {
+  background-image: url("https://i.pinimg.com/236x/ef/ec/b1/efecb1ecbf353500070fa93b1b393ad4.jpg");
+  animation-delay: 0s;
+}
+.slide2 {
+  background-image: url("https://i.pinimg.com/474x/1a/c3/eb/1ac3eb6be602068ce9320ffb85738678.jpg");
+  animation-delay: 6s;
+}
+.slide3 {
+  background-image: url("https://i.pinimg.com/236x/79/d1/22/79d122918323d36f033aca6489b26d28.jpg");
+  animation-delay: 12s;
+}
+
+@keyframes fade {
+  0%, 100%   { opacity: 0; }
+  10%, 30%   { opacity: 1; }
+  40%, 100%  { opacity: 0; }
+}
+
+/* Signup form container */
 .auth-container {
-  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 350px;
-}
-
-/* Input fields */
-input {
+  border-radius: 20px;
+  z-index: 2;
   width: 90%;
-  padding: 10px;
+  max-width: 400px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Buttons */
-button {
-  background-color: #ff9800;
-  color: white;
-  padding: 10px 15px;
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  outline: none;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 10px;
+  color: white;
   font-size: 16px;
+  cursor: pointer;
 }
-
-button:hover {
-  background-color: #e68900;
-}
-
-/* Error text */
-.error-text {
-  color: red;
-  font-size: 14px;
-}
-
-/* Toggle button */
 .toggle-btn {
   background: none;
-  color: #ff6600;
   border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.toggle-btn:hover {
+  color: #00e6e6;
   text-decoration: underline;
+  cursor: pointer;
 }
 
-
-
-
-.nav-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-}
-
-/* Navigation Icons */
-.nav-icon {
-  font-size: 24px;
-}
-
-/* Navigation Text */
-.nav-text {
-  font-size: 16px;
-}
-
-
-
-
-
-
-/* Ensure content width is proper */
-.main-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+.error-text {
+  color: #ff4d4d;
+  font-size: 14px;
 }
 
 /* Navigation Bar */
 .navbar {
   display: flex;
   justify-content: center;
-  background: #333;
-  padding: 10px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
-
-/* Navigation Items */
-.nav-item {
-  background: none;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
   align-items: center;
-  gap: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Adjust images in Home, About, Search, Profile pages */
-.main-container img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: auto;
+.nav-item {
+  margin: 0 30px;
+  font-size: 26px; /* Larger font */
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.2s ease-in-out;
 }
+
+.nav-item:hover {
+  transform: scale(1.1);
+  color: #8B4513;
+}
+
