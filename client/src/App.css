@@ -1,27 +1,32 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden; /* ✅ Only hide horizontal scroll */
+  overflow-y: auto;   /* ✅ Enable vertical scrolling */
   font-family: Arial, sans-serif;
 }
 
+
 .page-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  min-height: 100vh; /* Allow it to grow with content */
+  overflow-x: hidden; /* Only hide horizontal */
+  overflow-y: auto;   /* Allow vertical scrolling */
 }
+
 
 /* Carousel background */
 .carousel {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   z-index: 0;
 }
+
 
 .slide {
   position: absolute;
@@ -57,21 +62,18 @@ body, html {
 
 /* Signup form container */
 .auth-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 80px auto;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 20px;
-  z-index: 2;
   width: 90%;
   max-width: 400px;
   color: #fff;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
+
 
 .auth-container input {
   width: 100%;

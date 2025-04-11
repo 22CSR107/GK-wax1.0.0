@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Page from "../components/Page";
 
-// Importing images from src/assets
+// Importing images
 import img1 from "../assets/candle1.jpg";
 import img2 from "../assets/candle2.jpg";
 import img3 from "../assets/candle3.jpg";
@@ -13,7 +13,7 @@ import img8 from "../assets/candle8.jpg";
 import img9 from "../assets/candle9.jpg";
 import img10 from "../assets/candle10.jpg";
 
-function SearchPage() {
+function SearchPage({ setActivePageIndex }) {
     const initialCandles = [
         { id: 1, name: "Spices with Rose", price: 80, image: img1 },
         { id: 2, name: "Coconut shell rose flower", price: 80, image: img2 },
@@ -53,6 +53,7 @@ function SearchPage() {
         <Page>
             <div style={styles.container}>
                 <h1 style={styles.heading}>Candle Collection 🕯️</h1>
+
                 <div style={styles.searchSortContainer}>
                     <input
                         type="text"
@@ -89,6 +90,9 @@ function SearchPage() {
                 <div style={styles.summaryContainer}>
                     <h3>Total Price: ₹{totalPrice}</h3>
                     <button onClick={clearCart} style={styles.clearButton}>Clear Cart</button>
+                    <button onClick={() => setActivePageIndex(3)} style={styles.orderButton}>
+                        Proceed to Order
+                    </button>
                 </div>
             </div>
         </Page>
@@ -199,6 +203,17 @@ const styles = {
         borderRadius: "5px",
         cursor: "pointer",
         fontSize: "16px",
+    },
+    orderButton: {
+        marginTop: "10px",
+        padding: "10px 20px",
+        backgroundColor: "#5A2C0C",
+        color: "white",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        fontSize: "16px",
+        marginLeft: "10px",
     },
 };
 

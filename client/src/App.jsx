@@ -7,17 +7,20 @@ import SearchPage from "./Pages/SearchPage";
 import ProfilePage from "./Pages/ProfilePage";
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
+import OrderPage from "./Pages/OrderPage"; // import OrderPage
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
   const [activePageIndex, setActivePageIndex] = useState(0);
 
+  // Extend navbar to include OrderPage
   const NAVBAR_ITEMS = [
     { icon: "🏠", text: "Home", component: <HomePage /> },
     { icon: "🖼️", text: "About", component: <AboutPage /> },
-    { icon: "🔍", text: "Search", component: <SearchPage /> },
-    { icon: "👤", text: "Profile", component: <ProfilePage /> }, 
+    { icon: "🔍", text: "Search", component: <SearchPage setActivePageIndex={setActivePageIndex} /> },
+    { icon: "🛒", text: "Order", component: <OrderPage setActivePageIndex={setActivePageIndex} /> }, // FIXED: pass setActivePageIndex here
+    { icon: "👤", text: "Profile", component: <ProfilePage /> },
   ];
 
   if (!isAuthenticated) {
